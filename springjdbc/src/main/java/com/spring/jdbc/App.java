@@ -29,13 +29,18 @@ public class App
         		
         		
         		//update
-        		Student student = new Student();
-        		student.setId(666);
-        		student.setName("wick");
-        		student.setCity("delhi");
+//        		Student student = new Student();
+//        		student.setId(666);
+//        		student.setName("wick");
+//        		student.setCity("delhi");
+//        		
+//        		int result = studentDao.change(student);
+//        		
+//        		System.out.println("data changed " +result);
         		
-        		int result = studentDao.change(student);
+        		//delete
+        		int result = studentDao.delete(666);
         		
-        		System.out.println("data changed " +result);
+        		System.out.println("deleted " +result);
     }
 }
