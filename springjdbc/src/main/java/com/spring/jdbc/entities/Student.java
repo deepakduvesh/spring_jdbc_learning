@@ -1,22 +1,10 @@
 package com.spring.jdbc.entities;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-
 public class Student {
 	private int id;
 	private String name;
 	private String city;
-	private JdbcTemplate jdbcTemplate;
-
-    // ✅ This setter is required for Spring to inject JdbcTemplate
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-
-    // Optional getter if needed
-    public JdbcTemplate getJdbcTemplate() {
-        return jdbcTemplate;
-    }
+	
 	public int getId() {
 		return id;
 	}
@@ -35,15 +23,10 @@ public class Student {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
-	public Student(JdbcTemplate jdbcTemplate) {
-		super();
-		this.jdbcTemplate = jdbcTemplate;
-	}
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", city=" + city + ", jdbcTemplate=" + jdbcTemplate + "]";
+		return "Student [id=" + id + ", name=" + name + ", city=" + city + "]";
 	}
 
 	public Student(int id, String name, String city) {
@@ -53,8 +36,7 @@ public class Student {
 		this.city = city;
 	}
 	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 }

@@ -2,6 +2,7 @@ package com.spring.jdbc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -49,7 +50,7 @@ public class StudentDaoImpl implements StudentDao{
 		RowMapper<Student> rowMapper = new RowMapperImpl();
 		Student student= this.jdbcTemplate.queryForObject(query, rowMapper, studentId);
 		
-		//by using anonymous class no need to make rowMapperImpl class 
+		//by using anonymous class no need to make rowMapperImpl class
 //		Student student = (Student) this.jdbcTemplate.queryForObject(query, new RowMapper() {
 //			@Override
 //			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -62,6 +63,14 @@ public class StudentDaoImpl implements StudentDao{
 //			
 //		}, studentId);
 		return student;
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		//selecting all students
+		String query = "select * from student";
+		List<Student> students = this.jdbcTemplate.query(query, new RowMapperImpl());
+		return students;
 	}
 
 }
